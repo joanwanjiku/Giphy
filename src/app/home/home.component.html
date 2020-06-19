@@ -1,4 +1,8 @@
 <p>home works!</p>
-<ul>
-    <li *ngFor="let git of trending"></li>
-</ul>
+
+<div *ngFor="let gif of trending">
+    <p>{{gif.id}}</p>
+    <p>---{{gif.title}}</p>
+    --<img src="{{gif.url}}"/>
+
+</div>

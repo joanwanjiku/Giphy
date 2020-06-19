@@ -10,12 +10,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  trending: Trending;
+  trending: Trending[];
+  erroMsg: string
 
   constructor(private trendingService: TrendingService) { }
 
   ngOnInit(): void {
-    this.trending = this.trendingService.getTrendingGifs()
+    this.trendingService.getTrendingGifs().subscribe({
+      // next: trending => this.trending = trending['data'],
+      // error: err => this.erroMsg = err
+      next(trending) { console.log(trending)}
+    })
   }
 
 }
